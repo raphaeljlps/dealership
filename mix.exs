@@ -50,6 +50,8 @@ defmodule Dealership.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:slugger, "~> 0.3"},
+      {:number, "~> 1.0.1"},
+      {:csv, "~> 3.0"},
       {:plug_cowboy, "~> 2.5"}
     ]
   end

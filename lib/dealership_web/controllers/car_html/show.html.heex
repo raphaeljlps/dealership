@@ -1,17 +1,14 @@
 <.header>
-  Car <%= @car.car_pk %>
-  <:subtitle>This is a car record from your database.</:subtitle>
-  <:actions>
-    <.link href={~p"/cars/#{@car}/edit"}>
-      <.button>Edit car</.button>
-    </.link>
-  </:actions>
+  <h3><%= car_title(@car) %></h3>
 </.header>
 
 <.list>
-  <:item title="Year"><%= @car.car_Year %></:item>
-  <:item title="Make"><%= @car.car_Make %></:item>
-  <:item title="Model"><%= @car.car_Model %></:item>
+  <:item title="Price"><%= format_price(@car.car_SellingPrice) %></:item>
+  <:item title="Mileage"><%= format_mileage(@car.car_Miles) %></:item>
+  <:item title="Description"><%= @car.car_Description %></:item>
 </.list>
+<div class="col-sm-6">
+  <img src={@car.image_list} />
+</div>
 
 <.back navigate={~p"/cars"}>Back to cars</.back>

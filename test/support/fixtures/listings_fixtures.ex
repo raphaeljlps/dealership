@@ -10,9 +10,7 @@ defmodule Dealership.ListingsFixtures do
   def car_fixture(attrs \\ %{}) do
     {:ok, car} =
       attrs
-      |> Enum.into(%{
-
-      })
+      |> Enum.into(%{})
       |> Dealership.Listings.create_car()
 
     car

@@ -3,20 +3,20 @@ defmodule DealershipWeb.LegacyRedirect do
 
   def init(opts), do: opts
 
-  def call(conn, [forward_to: new_path]) do
+  def call(conn, forward_to: new_path) do
     slug = build_slug(conn)
 
     conn
     |> Plug.Conn.put_status(301)
     |> Phoenix.Controller.redirect(to: "#{new_path}/#{slug}")
-    |> Plug.Conn.halt
+    |> Plug.Conn.halt()
   end
 
   defp build_slug(%Plug.Conn{params: params}) do
     params["id"]
-    |> Listings.get_car!
+    |> Listings.get_car!()
     |> url_structure
-    |> Slugger.slugify_downcase
+    |> Slugger.slugify_downcase()
   end
 
   defp url_structure(car) do

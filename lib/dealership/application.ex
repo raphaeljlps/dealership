@@ -2,7 +2,7 @@ defmodule Dealership.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
-
+  import Logger
   use Application
 
   @impl true
@@ -21,6 +21,10 @@ defmodule Dealership.Application do
       # Start a worker by calling: Dealership.Worker.start_link(arg)
       # {Dealership.Worker, arg}
     ]
+
+    if Application.get_env(:dealership, :process_type) == :mix_task do
+      children = [Dealership.Repo]
+    end
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
