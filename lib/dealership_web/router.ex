@@ -18,6 +18,9 @@ defmodule DealershipWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    resources "/cars", CarController
+    get "/inventory/:id", LegacyRedirect, forward_to: "/cars"
   end
 
   # Other scopes may use custom stacks.
