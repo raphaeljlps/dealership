@@ -52,6 +52,7 @@ defmodule Dealership.MixProject do
       {:slugger, "~> 0.3"},
       {:number, "~> 1.0.1"},
       {:csv, "~> 3.0"},
+      {:flow, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"}
     ]
   end
